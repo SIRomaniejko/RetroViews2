@@ -1,0 +1,10 @@
+.contenido{
+    /* border:1px black solid; */
+}
+.contenido div{
+    border: 1px black solid;
+    /* border-right: 1px black solid; */
+}
+.orangered{
+    background-color: orangered;
+}
