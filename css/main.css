@@ -1,52 +1,80 @@
-.contenido{
-    /* border:1px black solid; */
-}
-.contenido div{
-    border: 1px black solid;
-    /* border-right: 1px black solid; */
-}
-.orangered{
-    background-color: orangered;
-}
-body{
-    background-color: red;
-}
 *{
     margin: 0;
     padding: 0;
 }
+body{
+    background-color: aqua;
+}
+.block{
+
+    display: block;
+}
+.flex-nav .menu{
+    width: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 .flex-nav{
     background-color: blue;
     display: flex;
-    /* flex-direction: row; */
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
+    flex-direction: column;
+    /* align-items: flex-start; */
     justify-content: space-around;
-    position: sticky;
-    top:0;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 180px;
+    z-index: 10;
+    /* -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out; */
+
 }
+.flex-nav.closed{
+    left: -180px;
+}
+.flex-nav.opening{ 
+    animation-name: magia;
+    animation-duration: 2s;
+}
+.flex-nav.closing{
+    animation-name: magiaNegra;
+    animation-duration: 1s;
+}
+.flex-top-alt{
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 50px;
+    background-color: rgba(255, 255, 255);
+}
+.flex-top-alt .menu{
+    height: 100%;
+}
+
+@keyframes magia{
+    0%{left: -180px;}
+    100%{left:0;}
+}
+@keyframes magiaNegra{
+    0%{left: 0;}
+    100%{left: -180px;}
+}
+
 .flex-foot{
     background-color: green;
     display: flex;
     justify-content: space-between;
 }
-@media only screen and (max-width:460px){
-    body{
-        background-color: aqua;
-    }
-    .flex-nav{
-        flex-flow: column nowrap;
-        flex-direction: column;
-        /* align-items: flex-start; */
-        justify-content: flex-start;         
-        height: fit-content;
-        width: fit-content;
-        position: relative;
-        float: left;
-    }
-    .js-container{
-        float: left;
-    }
-    .flex-foot{
-        clear: both;
-    }
+.js-container{
+    float: left;
+}
+.flex-foot{
+    clear: both;
 }

@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: aqua;
+}
+.flex-nav{
+    background-color: blue;
+    display: flex;
+    flex-flow: column nowrap;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 180px;
+    z-index: 13;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+
+}
+.flex-foot{
+    background-color: green;
+    display: flex;
+    justify-content: space-between;
+}
+.js-container{
+    float: left;
+}
+.flex-foot{
+    clear: both;
+}
