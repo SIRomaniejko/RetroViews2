@@ -52,7 +52,13 @@ body{
     flex-direction: row;
     flex-wrap: wrap;
     height: 50px;
-    background-color: rgba(255, 255, 255);
+    /* background-color: rgba(255, 255, 255); */
+    background-image: url("../images/banner.png");
+    background-size: 100%; 
+}
+.imagen{
+    width: fit-content;
+    z-index: 0;
 }
 .flex-top-alt .menu{
     height: 100%;
