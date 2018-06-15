@@ -96,13 +96,13 @@ body{
     clear: both;
 }
 .container article{
-    background-color: red;
+    background-color: rgba(255, 255, 255, 0.363);
     overflow: hidden;
     position: relative;
     z-index: 1;
 }
 .container article div{
-    background-color: rgba(255, 255, 255, 0.363);
+    background-color: inherit;
     width: 100%;
     position: absolute;
     z-index: 2;
@@ -122,4 +122,8 @@ body{
 .destacado{
     grid-column-end: 3;
     grid-column-start: 1;
+}
+
+.container article:hover{
+    background-color: rgba(43, 41, 133, 0.363);
 }
