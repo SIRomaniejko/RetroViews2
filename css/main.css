@@ -41,12 +41,16 @@ body{
     animation-duration: 1s;
 }
 .flex-nav div{
-    color: red;
+    color: black;
     border-bottom: 2px solid white;
-    width: 75%;
+    width: fit-content;
     text-align: center;
+    text-shadow: 0 0 5px white;
     /* background-color: cyan; */
     /* margin-top: 30%; */
+}
+.flex-nav div:hover{
+    box-shadow: 0 0 10px rgb(0, 140, 255);
 }
 .flex-top-alt{
     position: sticky;
@@ -89,7 +93,7 @@ body{
     height: 800px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    grid-gap: 5px;
+    grid-gap: 2px;
     grid-template-areas: "a a"
 }
 .flex-foot{
