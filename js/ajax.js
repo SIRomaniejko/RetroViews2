@@ -8,11 +8,7 @@ function home(){
         respuesta.text().then(regreso=>{
             console.log("funcionax2");
             container.innerHTML = regreso;
-            let divs = document.querySelector(".container").querySelectorAll("div");
-            for(a of divs){
-                let p = divs[a].getElementsByTagName("p")[0];
-                agregarResena(p, divs[a]);
-            }
+            agregarAJAXArticulos();
         })
     })
 }
@@ -35,3 +31,18 @@ function agregarResena(p, div){
     })
 }
 
+function agregarAJAXArticulos(){
+    let articulos = container.querySelectorAll("article");
+    let urlResena;
+    articulos.forEach(a =>{
+        a.addEventListener("click", function(){  
+            urlResena = "resenas/" + a.querySelector(".nombreHidden").innerHTML + ".html";
+            fetch(urlResena).then(res =>{
+                res.text().then(final =>{
+                    container.innerHTML = final;
+                    console.log(urlResena);
+                })
+            })
+        })
+    })
+}
