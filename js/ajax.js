@@ -1,9 +1,20 @@
 let container = document.querySelector(".js-container");
-document.addEventListener("DOMContentLoaded", home);
+document.addEventListener("DOMContentLoaded", subs);
 document.querySelector(".flex-nav").querySelectorAll("div")[0].addEventListener("click", home);
+document.querySelector(".flex-nav").querySelectorAll("div")[2].addEventListener("click", subs);
 
 function home(){
     fetch("home.html").then(respuesta=>{
+        console.log("funciona");
+        respuesta.text().then(regreso=>{
+            console.log("funcionax2");
+            container.innerHTML = regreso;
+            agregarAJAXArticulos();
+        })
+    })
+}
+function subs(){
+    fetch("subs.html").then(respuesta=>{
         console.log("funciona");
         respuesta.text().then(regreso=>{
             console.log("funcionax2");
@@ -46,3 +57,4 @@ function agregarAJAXArticulos(){
         })
     })
 }
+
