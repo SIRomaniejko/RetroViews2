@@ -87,7 +87,7 @@ body{
     display: flex;
     justify-content: space-between;
 }
-.container{
+.gridArticulos{
     margin: 0 0 5px 0;
     display: grid;
     height: 800px;
@@ -99,13 +99,13 @@ body{
 .flex-foot{
     clear: both;
 }
-.container article{
+.gridArticulos article{
     background-color: rgba(255, 255, 255, 0.363);
     overflow: hidden;
     position: relative;
     z-index: 1;
 }
-.container article div{
+.gridArticulos article div{
     background-color: inherit;
     width: 100%;
     position: absolute;
@@ -114,7 +114,7 @@ body{
     text-align: center;
 }
 
-.container article img{
+.gridArticulos article img{
     height: 100%;
     width: 100%;
 }
@@ -128,7 +128,7 @@ body{
     grid-column-start: 1;
 }
 
-.container article:hover{
+.gridArticulos article:hover{
     background-color: rgba(43, 41, 133, 0.363);
 }
 .formulario{
@@ -167,3 +167,6 @@ input:focus{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
 }
 
+footer{
+
+}

@@ -1,9 +1,7 @@
 document.querySelector('#submit').addEventListener('click',getDatos);
 document.querySelector('#get').addEventListener('click', mostrarTabla);
 document.querySelector('#delete').addEventListener('click', borrarTabla);
-let baseURL = 'https://web-unicen.herokuapp.com/api/groups/';
-let groupID = 'RomaYOli';
-let collectionID = '/resenas';
+let URL = 'https://web-unicen.herokuapp.com/api/groups/RomaYOli/resenas';
 function getDatos(){
     let nombre = document.querySelector('#juego').value;
     let graficos = document.querySelector('#grafico').value;
@@ -23,19 +21,16 @@ function getDatos(){
     cargarTabla(resenia);
 }
 function mostrarTabla(){
-    fetch(baseURL + groupID + collectionID, {
-        method: 'GET',
-        mode: 'cors',
-        headers: {'Content-Type':'application/json'}
-    }).then(function(r){
+    fetch(URL).then(r=>{
         if(!r.ok){
-            console.log('FAllaste wey');
+            console.log('Fallaste wey');
         }else{
             return r.json();
         }
     })
     .then(function(json){
         let tbody = document.querySelector('#tbody');
+        console.log(json)
         for(let data of json.resenas){
             tbody.innerHTML += '<tr>';
             tbody.innerHTML += '<td>'+data.thing.nombre+'</td>';

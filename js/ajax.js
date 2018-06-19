@@ -58,7 +58,7 @@ function agregarAJAXArticulos(){
     let urlResena;
     articulos.forEach(a =>{
         a.addEventListener("click", function(){  
-            urlResena = "resenas/" + a.querySelector(".nombreHidden").innerHTML + ".html";
+            urlResena = "resenas/" + a.getAttribute("nombreArticulo") + ".html";
             fetch(urlResena).then(res =>{
                 res.text().then(final =>{
                     container.innerHTML = final;
