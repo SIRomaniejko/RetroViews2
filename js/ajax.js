@@ -43,9 +43,9 @@ function subscripccion(){
 
 }
 
-function agregarResena(p, div){
+function agregarReview(p, div){
     div.addEventListener("click", function(){
-        fetch("resenas/" + p).then(respuesta =>{
+        fetch("reviews/" + p).then(respuesta =>{
             respuesta.text().then(texto=>{
                 container.innerHTML = texto;
             })
@@ -55,14 +55,14 @@ function agregarResena(p, div){
 
 function agregarAJAXArticulos(){
     let articulos = container.querySelectorAll("article");
-    let urlResena;
+    let urlReview;
     articulos.forEach(a =>{
         a.addEventListener("click", function(){  
-            urlResena = "resenas/" + a.getAttribute("nombreArticulo") + ".html";
-            fetch(urlResena).then(res =>{
+            urlReview = "reviews/" + a.getAttribute("nombreArticulo") + ".html";
+            fetch(urlReview).then(res =>{
                 res.text().then(final =>{
                     container.innerHTML = final;
-                    console.log(urlResena);
+                    console.log(urlReview);
                 })
             })
         })
