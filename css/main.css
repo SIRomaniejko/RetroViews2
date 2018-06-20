@@ -193,4 +193,17 @@ ol li{
     .gridArticulos div h1{
         font-size: 40px;
     }   
+    p{
+        font-size:45px;
+    }
+    h1{
+        font-size:65px;
+    }
+    h3{
+        font-size:55px;
+    }
+    footer{
+        font-size:35px;
+        height: 100px; 
+    }
 }
