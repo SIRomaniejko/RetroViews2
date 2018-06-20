@@ -75,7 +75,6 @@ function creaTuReview(){
         }
     })
     function enviarData(){
-        agregarElemento();
         console.log("funciona?")
         let data = {
             "thing": {
@@ -86,11 +85,24 @@ function creaTuReview(){
                 "argumento": inputs[4].value
             }
         }
-        fetch(URLRest, {
-            "method": "POST",
-            "headers": {"Content-Type": "application/json"},
-            "body": JSON.stringify(data)
-        })
+        if(10 >= data.thing.graficos > 0 && 10 >= data.thing.bandaSonora > 0 && 10 >= data.thing.gameplay > 0 && 10 >= data.thing.argumento > 0){
+            if(data.thing.graficos && data.thing.bandaSonora && data.thing.gameplay && data.thing.argumento){
+                fetch(URLRest, {
+                    "method": "POST",
+                    "headers": {"Content-Type": "application/json"},
+                    "body": JSON.stringify(data)
+                }).then(agregarElemento);
+            }
+            else{
+                alert("hay un campo vacio");
+            }
+        }
+        else{
+            alert("el puntaje tiene que ser entre 1 y 10");
+        }
+    }
+    function agregarBotones(){
+        //a hacer
     }
     refresh();
     function refresh(){
@@ -99,7 +111,7 @@ function creaTuReview(){
             resp.json().then(objeto=>{
                 objeto.resenas.forEach(reviews=>{
                     valores = reviews.thing;
-                    let nuevaRow = crearFila(false, valores);
+                    let nuevaRow = crearFila(false, valores, reviews._id);
                     document.querySelector("tbody").appendChild(nuevaRow);
                 })
             })
@@ -115,9 +127,13 @@ function creaTuReview(){
         regreso.innerHTML = total;
         return regreso;
     }
-    function crearFila(esLocal, valores){
+    function crearFila(esLocal, valores, id){
         let nuevaFila = document.createElement("tr");
         let td = [];
+        let botonBorrar = document.createElement("button");
+        botonBorrar.innerHTML = "X";
+        let botonEditar = document.createElement("button");
+        botonEditar.innerHTML = "editar";
         if(esLocal==true){
             let a = 0;
             inputs.forEach(input=>{
@@ -126,7 +142,13 @@ function creaTuReview(){
                 nuevaFila.appendChild(td[a]);
                 a++;
             })
-            
+            fetch(URLRest).then(respuestaV2=>{
+                respuestaV2.json().then(final=>{
+                    let max = final.resenas.length;
+                    id = final.resenas[max-1]._id;
+                    console.log(id);
+                })
+            })
         }
         else{
             let a = 0;
@@ -138,8 +160,13 @@ function creaTuReview(){
                 a++;
             })
         }
+        botonBorrar.addEventListener("click", ()=>{
+            borrarRest(id, nuevaFila);
+        })
         tdTotal = totalTd(td);
         nuevaFila.appendChild(tdTotal);
+        nuevaFila.appendChild(botonEditar);
+        nuevaFila.appendChild(botonBorrar);
         return nuevaFila;
     }
     function agregarElemento(){
@@ -147,15 +174,19 @@ function creaTuReview(){
         document.querySelector("tbody").appendChild(nuevaRow);
     }
 
-    function borrarRest(ultraURL){
+    function borrarRest(ultraURL, tr){
         ultraURL = URLRest + "/" + ultraURL;
         fetch(ultraURL, {
             "method": "DELETE",
             "mode": "cors",
             "headers": {"Content-Type": "application/json"}
-        })
+        });
+        tr.remove();
     }
-    
+    // function hardReset(){
+    //     document.querySelector("tbody").innerHTML = "";
+    //     refresh();
+    // }
     document.querySelector("#pija").addEventListener("click", aLaVerga);
     function aLaVerga(){
         fetch(URLRest).then(resp=>{
