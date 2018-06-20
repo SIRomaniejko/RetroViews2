@@ -10,3 +10,4 @@ document.querySelector(".flex-top-alt").querySelector(".menu").addEventListener(
     nav.classList.toggle("opening");
     nav.classList.remove("closing");
 })
+document.querySelector('.js-retroceso').addEventListener('click', home);

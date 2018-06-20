@@ -34,15 +34,6 @@ function subs(){
         })
     })
 }
-
-function posts(){
-
-}
-
-function subscripccion(){
-
-}
-
 function agregarReview(p, div){
     div.addEventListener("click", function(){
         fetch("reviews/" + p).then(respuesta =>{
@@ -64,7 +55,7 @@ function agregarAJAXArticulos(){
                     container.innerHTML = final;
                     console.log(urlReview);
                 })
-            })
+            }).catch(a=>console.log(a));
         })
     })
 }
