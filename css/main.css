@@ -27,7 +27,6 @@ body{
     bottom: 0;
     width: 180px;
     z-index: 10;
-
 }
 .flex-nav.closed{
     left: -180px;
@@ -180,6 +179,50 @@ ol li{
     /* margin: 0 0 0 10px; */
     text-decoration: none;
 }
+table{
+    width: 100%;
+}
+
+.tablaReviews{
+    overflow:scroll;
+    height: 366px;
+}
+tr:nth-child(even){ /* odd and even*/
+    background-color: grey;
+}
+td{
+    border-bottom: 1px black solid;
+    border-right: 1px black solid;
+}
+thead td{
+    background-color:grey;
+    position:sticky;
+    top:0px;
+}
+.formReview input{
+    width: 100px;
+    display: inline;
+    /* float: left; */
+}
+.formReview label{
+    /* float: right; */
+    display: inline;
+}
+.formReview div{
+    /* display: inline; */
+}
+input:first-of-type{
+    /* width: 250px; */
+}
+.formReview{
+    /* display: table; */
+    table-layout: fixed;
+    /* width: 100%; */
+    word-wrap: normal;
+    /* list-style-type: none; */
+    list-style-position: outside;
+    /* list-style-image: none */
+}
 @media only screen and (min-width:500px){
     .gridArticulos{
         grid-template-columns: repeat(3, 1fr);
@@ -205,5 +248,31 @@ ol li{
     footer{
         font-size:35px;
         height: 100px; 
+    }
+    table td{
+        font-size: 25px;
+    }
+    .tablaReviews{
+        height: fit-content;
+    }
+    label{
+        font-size:25px;
+    }
+    .flex-nav{
+        display: flex;
+        /* flex-flow: column nowrap; */
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        /* left: 0; */
+        /* bottom: 0; */
+        /* width: 180px; */
+        z-index: 10;
+    }
+    .flex-nav.closed{
+        top:0;
+        left:0;
     }
 }
