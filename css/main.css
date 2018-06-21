@@ -28,6 +28,9 @@ body{
     width: 180px;
     z-index: 10;
 }
+.flex-nav.opened{
+    left: 0px;
+}
 .flex-nav.closed{
     left: -180px;
 }
@@ -129,15 +132,11 @@ body{
 .formulario{
     display: flex;
     border: 1px black solid;
-    margin:15px 10px 0 10px;
     width: 300px;
-    /* background-color: rgba(255, 255, 255, 0.363); */
     background-image: url("../images/adventure.jpg");
 }
 .formulario input{
-    padding-bottom: 5px;
-    margin: 0px 5px 5px 5px;
-    width: 95%;
+    width: 99%;
     color: black;
     font-size: 20px;
 }
@@ -148,13 +147,10 @@ body{
     font-size: 25px;
 }
 .formulario button{
-    display: flex;
-    /* margin:0px 0px 5px 100px; */
-    margin: 0 auto;
-    /* padding-bottom: 10px; */
+    margin-top: 10px;
+    margin-left: 200px;
+    margin-bottom: 10px;
     width: 100px;
-    text-align: center;
-    text-decoration: none;
     font-size: 16px;
     cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
@@ -176,7 +172,6 @@ li{
 }
 ol li{
     margin: 0;
-    /* margin: 0 0 0 10px; */
     text-decoration: none;
 }
 table{
@@ -200,28 +195,18 @@ thead td{
     top:0px;
 }
 .formReview input{
-    width: 100px;
     display: inline;
-    /* float: left; */
 }
 .formReview label{
-    /* float: right; */
     display: inline;
 }
-.formReview div{
-    /* display: inline; */
-}
-input:first-of-type{
-    /* width: 250px; */
-}
 .formReview{
-    /* display: table; */
     table-layout: fixed;
-    /* width: 100%; */
     word-wrap: normal;
-    /* list-style-type: none; */
     list-style-position: outside;
-    /* list-style-image: none */
+}
+.escritorio{
+    display: none;
 }
 @media only screen and (min-width:500px){
     .gridArticulos{
@@ -262,19 +247,8 @@ input:first-of-type{
         border: 1px black solid;
         margin:15px 0px 100px 10px;
         width: 95%;
-        /* background-color: rgba(255, 255, 255, 0.363); */
         background-image: url("../images/adventure.jpg");
     }
-    /* .formulario button{
-        margin: 0 auto
-        /* margin:0px 0px 5px 100px;
-        width: 100px;
-        text-align: center;
-        text-decoration: none;
-        font-size: 16px;
-        cursor: pointer;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
-    } */
     .flex-nav{
         background-image: url("../images/backgroundDan.png");
         display: flex;
@@ -305,6 +279,14 @@ input:first-of-type{
         padding-bottom: 20px;
         margin-left:25px;
     }
+    .review img{
+        width: 50%;
+        float: left;
+    }
+    .review p{
+        font-size: 20px;
+        /* float: left; */
+    }
 }
 @media only screen and (min-width:1000px){
     .flex-nav{
@@ -322,6 +304,9 @@ input:first-of-type{
         z-index: 10;
         cursor: pointer;
     }
+    .flex-nav div{
+        border-bottom: 0;
+    }
     .flex-top-alt{
         display: none;
     }
@@ -330,17 +315,25 @@ input:first-of-type{
     }
     .formulario{
         border: 1px black solid;
-        margin:200px 20px 300px 20px;
-        width: 95%;
-        /* background-color: rgba(255, 255, 255, 0.363); */
+        margin-top: 5%;
+        margin-left:33%; 
+        width: 500px;
         background-image: url("../images/adventure.jpg");
     }
-    /* .formulario button{
-        /* margin-left: 50%;
-        align-items: center;
-        margin: 0 0 0 0;
-        /* justify-content: center; 
-        height: 50px;
-        width: 100px;
-    } */
+    .review img{
+        width: 30%;
+        float: left;
+    }
+    .review div img{
+        width: 20%;
+        float: right;
+        /* display: none; */
+    }
+    .review p{
+        font-size: 20px;
+        /* float: ; */
+    }
+    .escritorio{
+        display: inherit;
+    }
 }
