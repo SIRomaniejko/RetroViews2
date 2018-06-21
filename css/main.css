@@ -3,6 +3,9 @@
     padding: 0;
     /* font-family: sans-serif; */
 }
+.miniArticulo img{
+    display: block;
+}
 .js-hidden{
     display: none;
 }
@@ -171,6 +174,7 @@ input:focus{
 }
 .review img{
     width: 100%;
+    display: block;
 }
 table{
     width: 100%;
@@ -191,9 +195,6 @@ thead td{
     background-color:grey;
     position:sticky;
     top:0px;
-}
-.escritorio{
-    display: none;
 }
 .resaltado td{
     background-color: gold;
@@ -261,21 +262,31 @@ thead td{
     .gridArticulos div h1{
         font-size: 40px;
     }
-    .r2{
+    .miniArticulo{
         width: 100%;
         height: auto;
     }
-    .r2 img{
+    .miniArticulo img{
         width: 50%;
         float: left;
+        display: block;
         margin: 10px 10px 0px 10px;
     }
-    .r2 p{
+    .miniArticulo p{
         margin: 10px 0px 0px 10px;
         font-size: 25px;
     }
     .review h1{
         font-size:50px;
+    }
+    .review img{
+        width: 50%;
+        margin: 5px 5px 5px 5px;
+        float: left;
+    }
+    .review p{
+        font-size: 20px;
+        margin: 0 5px 0 5px;
     }
     footer{
         font-size:35px;
@@ -329,12 +340,31 @@ thead td{
     }
 }
 @media only screen and (min-width:1000px){
-    .review img{
-        width: 40%;
+    .miniArticulo img{
         float: left;
+        margin-left:100px;
     }
     .review{
-
+        width: 80%;
+        margin: 20px auto;
+        border-radius: 20px;
+        overflow: hidden;
+        background-color: lightcyan;
+        clear: both;
+    }
+    .review img{
+        clear: both;
+        border-radius: 10px;
+        width: 40%;
+        margin: 10px 0;
+    }
+    .review h1{
+        margin: 0 0 0 10px;
+        clear: both;
+    }
+    .review p{
+        clear: both;
+        margin: 0 10px 0 10px;
     }
     .flex-nav{
         background-image: url("../images/backgroundDan.png");
@@ -364,9 +394,6 @@ thead td{
     }
     .formulario input{
         width: 95%;
-    }
-    .escritorio{
-        display: inherit;
     }
     .tablaReviews{
         height: 350px;
