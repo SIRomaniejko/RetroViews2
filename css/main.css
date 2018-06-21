@@ -28,6 +28,9 @@ body{
     width: 180px;
     z-index: 10;
 }
+.flex-nav.opened{
+    left: 0px;
+}
 .flex-nav.closed{
     left: -180px;
 }
@@ -112,35 +115,33 @@ body{
     bottom: 0;
     text-align: center;
 }
-
 .gridArticulos article img{
     height: 100%;
     width: 100%;
 }
-
 #destacado{
     grid-area: a;
 }
-
 .destaca2{
     grid-column-end: 3;
     grid-column-start: 1;
 }
-
 .gridArticulos article:hover{
     background-color: rgba(43, 41, 133, 0.363);
 }
 .formulario{
+    display: flex;
     border: 1px black solid;
-    margin:5px 10px 0 10px;
-    width: 300px;
-    /* background-color: rgba(255, 255, 255, 0.363); */
+    margin-top: 5%;
+    margin-left:10px; 
+    width: 90%;
     background-image: url("../images/adventure.jpg");
 }
 .formulario input{
-    padding-bottom: 5px;
-    margin: 0px 5px 5px 5px;
-    width: 95%;
+    /* margin-right: 10%; */
+    margin-left:10px; 
+    /* float: right; */
+    width: 90%;
     color: black;
     font-size: 20px;
 }
@@ -151,10 +152,10 @@ body{
     font-size: 25px;
 }
 .formulario button{
-    margin:0px 0px 5px 100px;
+    margin-top: 10px;
+    margin-left: 33%;
+    margin-bottom: 10px;
     width: 100px;
-    text-align: center;
-    text-decoration: none;
     font-size: 16px;
     cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
@@ -167,16 +168,15 @@ input:focus{
     width: 100%;
 }
 ul{
-    margin: 0 0 0 10px;
+    margin: 10px 0 0 10px;
 }
 li{
     font-family: sans-serif;
     font-size: 20px;
-    margin: 0 0 0 10px;
+    margin: 0 0 0 15px;
 }
 ol li{
     margin: 0;
-    /* margin: 0 0 0 10px; */
     text-decoration: none;
 }
 table{
@@ -200,28 +200,18 @@ thead td{
     top:0px;
 }
 .formReview input{
-    width: 100px;
     display: inline;
-    /* float: left; */
 }
 .formReview label{
-    /* float: right; */
     display: inline;
 }
-.formReview div{
-    /* display: inline; */
-}
-input:first-of-type{
-    /* width: 250px; */
-}
 .formReview{
-    /* display: table; */
     table-layout: fixed;
-    /* width: 100%; */
     word-wrap: normal;
-    /* list-style-type: none; */
     list-style-position: outside;
-    /* list-style-image: none */
+}
+.escritorio{
+    display: none;
 }
 .resaltado td{
     background-color: gold;
@@ -243,7 +233,7 @@ input:first-of-type{
         font-size:45px;
     }
     h1{
-        font-size:65px;
+        font-size:50px;
     }
     h3{
         font-size:55px;
@@ -261,21 +251,110 @@ input:first-of-type{
     label{
         font-size:25px;
     }
+
     .flex-nav{
+        background-image: url("../images/backgroundDan.png");
+        display: flex;
+        flex-flow: column nowrap;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 400px;
+        z-index: 10;
+    }
+    @keyframes magia{
+        0%{left: -400px;}
+        100%{left:0;}
+    }
+    @keyframes magiaNegra{
+        0%{left: 0;}
+        100%{left: -400px;}
+    }
+    .flex-nav.closed{
+        left: -400px;
+    }
+    li{
+        font-size: 35px;
+        padding-bottom: 20px;
+        margin-left:25px;
+    }
+    .review img{
+        width: 50%;
+        float: left;
+    }
+    .review p{
+        font-size: 20px;
+        /* float: left; */
+    }
+    .formulario button{
+        margin-left:45%;
+    }
+    .formulario input{
+        width: 90%;
+    }
+}
+@media only screen and (min-width:1000px){
+    .flex-nav{
+        background-image: url("../images/backgroundDan.png");
         display: flex;
         /* flex-flow: column nowrap; */
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
-        position: fixed;
+        position: sticky;
         top: 0;
         /* left: 0; */
         /* bottom: 0; */
-        /* width: 180px; */
+        width: 100%;
         z-index: 10;
+        cursor: pointer;
     }
-    .flex-nav.closed{
-        top:0;
-        left:0;
+    .flex-nav div{
+        border-bottom: 0;
+    }
+    .flex-top-alt{
+        display: none;
+    }
+    .block{
+        display: none;
+    }
+    .formulario{
+        border: 1px black solid;
+        margin-top: 5%;
+        margin-left:33%; 
+        width: 500px;
+        background-image: url("../images/adventure.jpg");
+    }
+    .formulario input{
+        /* margin-right: 5px; */
+    }
+    .formulario button{
+        margin-top: 10px;
+        margin-left: 200px;
+        margin-bottom: 10px;
+        width: 100px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+    }
+    .review img{
+        width: 30%;
+        float: left;
+    }
+    .review div img{
+        width: 20%;
+        float: right;
+        /* display: none; */
+    }
+    .review p{
+        font-size: 20px;
+        /* float: ; */
+    }
+    .escritorio{
+        display: inherit;
     }
 }
