@@ -180,7 +180,7 @@ table{
     overflow:scroll;
     height: 600px;
 }
-tr:nth-child(even){ /* odd and even*/
+td:nth-child(even){ /* odd and even*/
     background-color: grey;
 }
 td{
@@ -329,6 +329,13 @@ thead td{
     }
 }
 @media only screen and (min-width:1000px){
+    .review img{
+        width: 40%;
+        float: left;
+    }
+    .review{
+
+    }
     .flex-nav{
         background-image: url("../images/backgroundDan.png");
         display: flex;
