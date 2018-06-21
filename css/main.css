@@ -112,27 +112,24 @@ body{
     bottom: 0;
     text-align: center;
 }
-
 .gridArticulos article img{
     height: 100%;
     width: 100%;
 }
-
 #destacado{
     grid-area: a;
 }
-
 .destaca2{
     grid-column-end: 3;
     grid-column-start: 1;
 }
-
 .gridArticulos article:hover{
     background-color: rgba(43, 41, 133, 0.363);
 }
 .formulario{
+    display: flex;
     border: 1px black solid;
-    margin:5px 10px 0 10px;
+    margin:15px 10px 0 10px;
     width: 300px;
     /* background-color: rgba(255, 255, 255, 0.363); */
     background-image: url("../images/adventure.jpg");
@@ -151,7 +148,10 @@ body{
     font-size: 25px;
 }
 .formulario button{
-    margin:0px 0px 5px 100px;
+    display: flex;
+    /* margin:0px 0px 5px 100px; */
+    margin: 0 auto;
+    /* padding-bottom: 10px; */
     width: 100px;
     text-align: center;
     text-decoration: none;
@@ -167,12 +167,12 @@ input:focus{
     width: 100%;
 }
 ul{
-    margin: 0 0 0 10px;
+    margin: 10px 0 0 10px;
 }
 li{
     font-family: sans-serif;
     font-size: 20px;
-    margin: 0 0 0 10px;
+    margin: 0 0 0 15px;
 }
 ol li{
     margin: 0;
@@ -240,7 +240,7 @@ input:first-of-type{
         font-size:45px;
     }
     h1{
-        font-size:65px;
+        font-size:50px;
     }
     h3{
         font-size:55px;
@@ -258,21 +258,89 @@ input:first-of-type{
     label{
         font-size:25px;
     }
+    .formulario{
+        border: 1px black solid;
+        margin:15px 0px 100px 10px;
+        width: 95%;
+        /* background-color: rgba(255, 255, 255, 0.363); */
+        background-image: url("../images/adventure.jpg");
+    }
+    /* .formulario button{
+        margin: 0 auto
+        /* margin:0px 0px 5px 100px;
+        width: 100px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+    } */
     .flex-nav{
+        background-image: url("../images/backgroundDan.png");
+        display: flex;
+        flex-flow: column nowrap;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 400px;
+        z-index: 10;
+    }
+    @keyframes magia{
+        0%{left: -400px;}
+        100%{left:0;}
+    }
+    @keyframes magiaNegra{
+        0%{left: 0;}
+        100%{left: -400px;}
+    }
+    .flex-nav.closed{
+        left: -400px;
+    }
+    li{
+        font-size: 35px;
+        padding-bottom: 20px;
+        margin-left:25px;
+    }
+}
+@media only screen and (min-width:1000px){
+    .flex-nav{
+        background-image: url("../images/backgroundDan.png");
         display: flex;
         /* flex-flow: column nowrap; */
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
-        position: fixed;
+        position: sticky;
         top: 0;
         /* left: 0; */
         /* bottom: 0; */
-        /* width: 180px; */
+        width: 100%;
         z-index: 10;
+        cursor: pointer;
     }
-    .flex-nav.closed{
-        top:0;
-        left:0;
+    .flex-top-alt{
+        display: none;
     }
+    .block{
+        display: none;
+    }
+    .formulario{
+        border: 1px black solid;
+        margin:200px 20px 300px 20px;
+        width: 95%;
+        /* background-color: rgba(255, 255, 255, 0.363); */
+        background-image: url("../images/adventure.jpg");
+    }
+    /* .formulario button{
+        /* margin-left: 50%;
+        align-items: center;
+        margin: 0 0 0 0;
+        /* justify-content: center; 
+        height: 50px;
+        width: 100px;
+    } */
 }
