@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", home);
 document.querySelector(".flex-nav").querySelectorAll("div")[0].addEventListener("click", home);
 document.querySelector(".flex-nav").querySelectorAll("div")[2].addEventListener("click", subs);
 document.querySelector(".flex-nav").querySelectorAll("div")[1].addEventListener("click", post);
+
 //podria ser una unica funcion :(
 function post(){
     fetch("posts.html").then(respuesta=>{
@@ -67,10 +68,13 @@ function agregarAJAXArticulos(){
 let URLRest = "https://web-unicen.herokuapp.com/api/groups/RomaYOli/resenas";
 
 function creaTuReview(){
-    let inputs = document.querySelectorAll("input");
+    let inputs = document.querySelector("form").querySelectorAll("input");
     let esEdicion = false;
     let idEdicion;
     document.querySelector("#enviar").addEventListener("click", enviarData);
+    document.querySelector(".js-filter").querySelector("button").addEventListener("click", filtroMenos);
+    document.querySelector(".js-filter").querySelectorAll("button")[1].addEventListener("click", filtroUnico);
+    document.querySelector(".js-filter").querySelectorAll("button")[2].addEventListener("click", sacarFilto);
     document.querySelector("#enviarX3").addEventListener("click", ()=>{
         for(let a = 0; a < 3; a++){
             enviarData();
@@ -157,9 +161,9 @@ function creaTuReview(){
         let nuevaFila = document.createElement("tr");
         let td = [];
         let botonBorrar = document.createElement("button");
-        botonBorrar.innerHTML = "X";
+        botonBorrar.innerHTML = "Borrar";
         let botonEditar = document.createElement("button");
-        botonEditar.innerHTML = "editar";
+        botonEditar.innerHTML = "Editar";
         if(esLocal==true){
             let a = 0;
             inputs.forEach(input=>{
@@ -205,6 +209,37 @@ function creaTuReview(){
     function agregarElemento(){
         let nuevaRow = crearFila(true);
         document.querySelector("tbody").appendChild(nuevaRow);
+    }
+
+    function filtro(esUnico){
+        console.log("funciono el filtro");
+        let valor = document.querySelector(".js-filter").querySelector("input").value
+        document.querySelector("tbody").querySelectorAll("tr").forEach(row=>{
+            let total = parseFloat(row.querySelectorAll("td")[5].innerHTML, 10);
+            if(esUnico){
+                if(total != valor){
+                    row.classList.toggle("js-hidden");
+                }
+            }
+            else if(!esUnico){
+                if(total == valor){
+                    row.classList.toggle("js-hidden");
+                }
+            }
+        })
+    }
+    function filtroMenos(){
+        console.log("filtro menos");
+        filtro(false);
+    }
+    function filtroUnico(){
+        console.log("filtro unico");
+        filtro(true);
+    }
+    function sacarFilto(){
+        document.querySelector("tbody").querySelectorAll("tr").forEach(row=>{
+            row.classList.remove("js-hidden");
+        })
     }
 
     function borrarRest(ultraURL, tr){

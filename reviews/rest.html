@@ -16,22 +16,31 @@
     </table>
 </div>
 <div class="formReview">
-    <div>
-        <label>Juego:</label><input type="text">
-    </div>
-    <div>
-        <label>Graficos:</label><input type="number" name="Graficos" id="">
-    </div>    
-    <div>
-        <label>Banda sonora:</label><input type="number" name="Banda Sonora" id="">
-    </div>
-    <div>
-        <label>Gameplay:</label><input type="number" name="Gameplay" id="">
-    </div>    
-    <div>
-        <label>Argumento:</label><input type="number" name="Argumento" id="">
-    </div>
+    <form>
+        <div>
+            <label>Juego:</label><input type="text">
+        </div>
+        <div>
+            <label>Graficos:</label><input type="number" name="Graficos" id="">
+        </div>    
+        <div>
+            <label>Banda sonora:</label><input type="number" name="Banda Sonora" id="">
+        </div>
+        <div>
+            <label>Gameplay:</label><input type="number" name="Gameplay" id="">
+        </div>    
+        <div>
+            <label>Argumento:</label><input type="number" name="Argumento" id="">
+        </div>
+    </form>
     <button id="enviarX3">enviarx3</button>
     <button id="enviar">enviar</button>
     <button id="borrarTodo">borrar</button>
+    <div class="js-filter">
+        <label>Filtrar por valor total</label>
+        <input type="number">
+        <button>filtro solo</button>
+        <button>filtro todo menos</button>
+        <button>sacar filtro</button>
+    </div>
 </div>
