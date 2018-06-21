@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    /* font-family: sans-serif; */
 }
 .js-hidden{
     display: none;
@@ -136,15 +137,21 @@ body{
     display: flex;
     border: 1px black solid;
     margin-top: 5%;
-    margin-left:10px; 
+    margin-left:5%; 
+    margin-right:5%; 
+    margin-bottom: 5%;
+    /* height: 90%; */
     width: 90%;
     background-image: url("../images/adventure.jpg");
 }
+.formulario form{
+    width: 100%;
+}
 .formulario input{
-    /* margin-right: 10%; */
-    margin-left:10px; 
-    /* float: right; */
-    width: 90%;
+    /* margin-left: 2%; */
+    /* display: block; */
+    margin: auto;
+    width: 70%;
     color: black;
     font-size: 20px;
 }
@@ -156,7 +163,7 @@ body{
 }
 .formulario button{
     margin-top: 10px;
-    margin-left: 33%;
+    margin-left: 35%;
     margin-bottom: 10px;
     width: 100px;
     font-size: 16px;
@@ -169,18 +176,6 @@ input:focus{
 }
 .review img{
     width: 100%;
-}
-ul{
-    margin: 10px 0 0 10px;
-}
-li{
-    font-family: sans-serif;
-    font-size: 20px;
-    margin: 0 0 0 15px;
-}
-ol li{
-    margin: 0;
-    text-decoration: none;
 }
 table{
     width: 100%;
@@ -202,16 +197,10 @@ thead td{
     position:sticky;
     top:0px;
 }
-.formReview input{
-    display: inline;
-}
-.formReview label{
-    display: inline;
-}
-.formReview{
-    table-layout: fixed;
-    word-wrap: normal;
-    list-style-position: outside;
+.formReview div{
+    display: inline-block;
+    width: 320px;
+    text-align: end;
 }
 .escritorio{
     display: none;
@@ -219,11 +208,21 @@ thead td{
 .resaltado td{
     background-color: gold;
 }
+.topTen li{
+    font-weight: bold;
+    margin-top:10px;
+    margin-left:45px;
+    font-size: 25px;
+    font-family: sans-serif;
+}
 @media only screen and (min-width:500px){
+    .topTen li{
+        margin-left:55px;
+    }
     .gridArticulos{
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, 1fr);
-        height: 950px;
+        height: 700px;
     }
     .destaca2{
         grid-column-end: 3;
@@ -231,15 +230,22 @@ thead td{
     }
     .gridArticulos div h1{
         font-size: 40px;
-    }   
-    p{
-        font-size:45px;
     }
-    h1{
+    .r2{
+        width: 100%;
+        height: auto;
+    }
+    .r2 img{
+        width: 50%;
+        float: left;
+        margin: 10px 10px 0px 10px;
+    }
+    .r2 p{
+        margin: 10px 0px 0px 10px;
+        font-size: 25px;
+    }
+    .review h1{
         font-size:50px;
-    }
-    h3{
-        font-size:55px;
     }
     footer{
         font-size:35px;
@@ -249,12 +255,11 @@ thead td{
         font-size: 25px;
     }
     .tablaReviews{
-        height: fit-content;
+        height: 766px;
     }
     label{
         font-size:25px;
     }
-
     .flex-nav{
         background-image: url("../images/backgroundDan.png");
         display: flex;
@@ -280,38 +285,40 @@ thead td{
     .flex-nav.closed{
         left: -400px;
     }
-    li{
-        font-size: 35px;
-        padding-bottom: 20px;
-        margin-left:25px;
-    }
-    .review img{
-        width: 50%;
-        float: left;
-    }
-    .review p{
-        font-size: 20px;
-        /* float: left; */
-    }
-    .formulario button{
-        margin-left:45%;
+     .formulario button{
+    margin-left:45%;
     }
     .formulario input{
         width: 90%;
+    }
+    .formReview div{
+        width: 380px;
+        border: 1px black solid;
+    }
+    .formReview{
+        width: 400px;
+    }
+    .formReview input{
+        margin-right: 5%;
+    }
+    .js-filter button{
+        font-size: 30px;
+    }
+}
+@media only screen and (min-width:700px){
+    .gridArticulos{
+        height: 975px;
     }
 }
 @media only screen and (min-width:1000px){
     .flex-nav{
         background-image: url("../images/backgroundDan.png");
         display: flex;
-        /* flex-flow: column nowrap; */
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
         position: sticky;
         top: 0;
-        /* left: 0; */
-        /* bottom: 0; */
         width: 100%;
         z-index: 10;
         cursor: pointer;
@@ -326,38 +333,29 @@ thead td{
         display: none;
     }
     .formulario{
-        border: 1px black solid;
         margin-top: 5%;
         margin-left:33%; 
         width: 500px;
-        background-image: url("../images/adventure.jpg");
     }
     .formulario input{
-        /* margin-right: 5px; */
-    }
-    .formulario button{
-        margin-top: 10px;
-        margin-left: 200px;
-        margin-bottom: 10px;
-        width: 100px;
-        font-size: 16px;
-        cursor: pointer;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
-    }
-    .review img{
-        width: 30%;
-        float: left;
-    }
-    .review div img{
-        width: 20%;
-        float: right;
-        /* display: none; */
-    }
-    .review p{
-        font-size: 20px;
-        /* float: ; */
+        width: 95%;
     }
     .escritorio{
         display: inherit;
+    }
+    .tablaReviews{
+        height: 350px;
+    }
+    .topTen li{
+        margin-top:10px;
+        margin-left:50px;
+    }
+    .flex-nav.closed{
+        padding: 10px 0 10px 0;
+    }
+    .topTen li{
+        clear: both;
+        /* margin-top: 10px; */
+        padding-top: 10px;
     }
 }

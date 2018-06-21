@@ -6,12 +6,12 @@ document.querySelector(".flex-nav").querySelectorAll("div")[1].addEventListener(
 
 //podria ser una unica funcion :(
 function post(){
-    fetch("posts.html").then(respuesta=>{
+    fetch("reviews/rest.html").then(respuesta=>{
         console.log("funciona");
         respuesta.text().then(regreso=>{
             console.log("funcionax2");
             container.innerHTML = regreso;
-            agregarAJAXArticulos();
+            creaTuReview();
         })
     })
 }
