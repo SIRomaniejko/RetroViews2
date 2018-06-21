@@ -178,7 +178,7 @@ table{
 
 .tablaReviews{
     overflow:scroll;
-    height: 366px;
+    height: 600px;
 }
 tr:nth-child(even){ /* odd and even*/
     background-color: grey;
@@ -191,11 +191,6 @@ thead td{
     background-color:grey;
     position:sticky;
     top:0px;
-}
-.formReview div{
-    display: inline-block;
-    width: 320px;
-    text-align: end;
 }
 .escritorio{
     display: none;
@@ -211,12 +206,44 @@ thead td{
     font-family: sans-serif;
 }
 .botoneraFiltro{
-    display: flex;
+    text-align: center;
     width: 50%;
-    float: left;
+    display: flex;
     flex-flow:column nowrap;
     justify-content: space-around;
     background-color: darkcyan;
+}
+.formReview{
+    display: flex;
+    flex-flow: row wrap;
+    width: 50%;
+    background-color: lightcyan;
+}
+.formReview form div, .formReview .botones{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+}
+.formReview form{
+    width: 50%;
+}
+.formReview .botones{
+    width: 50%;
+    justify-content: space-between;
+}
+.formReview .botones button{
+    width: 100%;
+    height: 40px;
+}
+.botoneraFiltro input{
+    height: 40px;
+    text-align: center;
+    font-size: 35px;
+}
+.superFlexRonpa2{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
 }
 @media only screen and (min-width:500px){
     .topTen li{
@@ -257,9 +284,6 @@ thead td{
     table td{
         font-size: 25px;
     }
-    .tablaReviews{
-        height: 766px;
-    }
     label{
         font-size:25px;
     }
@@ -288,18 +312,13 @@ thead td{
     .flex-nav.closed{
         left: -400px;
     }
-     .formulario button{
+    .formulario button{
     margin-left:45%;
     }
     .formulario input{
         height: 30px;
     }
-    .formReview div{
-        width: 380px;
-    }
-    .formReview{
-        width: 400px;
-    }
+    
     .js-filter button{
         font-size: 30px;
     }
@@ -359,8 +378,5 @@ thead td{
     }
     button{
         font-size: 30px;
-    }
-    .formReview{
-        background-color: red;
     }
 }
