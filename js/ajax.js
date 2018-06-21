@@ -68,12 +68,44 @@ let URLRest = "https://web-unicen.herokuapp.com/api/groups/RomaYOli/resenas";
 
 function creaTuReview(){
     let inputs = document.querySelectorAll("input");
+    let esEdicion = false;
+    let idEdicion;
     document.querySelector("#enviar").addEventListener("click", enviarData);
     document.querySelector("#enviarX3").addEventListener("click", ()=>{
         for(let a = 0; a < 3; a++){
             enviarData();
         }
     })
+    function modificarOAgregarData(){
+        if(esEdicion){
+            enviarData("PUT", idEdicion);
+            esEdicion = false;
+        }
+        else{
+            enviarData("POST");
+        }
+    }
+    function editValues(arrValues){
+        let num = 0;
+        inputs.forEach(a=>{
+            a.value = arrValues[num]; 
+            num++;
+        });
+    }
+    function comprobarCampos(){
+        let numero = 0;
+        let estaTodoCorrecto = true;
+        inputs.forEach(cadaInput=>{
+            if(!cadaInput.value){
+                estaTodoCorrecto = false;
+            }
+            if(numero > 0 && !((0 < cadaInput.value) && (cadaInput.value <= 10))){
+                estaTodoCorrecto = false;
+            }
+            numero++;
+        })
+        return estaTodoCorrecto;
+    }
     function enviarData(){
         console.log("funciona?")
         let data = {
@@ -85,24 +117,18 @@ function creaTuReview(){
                 "argumento": inputs[4].value
             }
         }
-        if(10 >= data.thing.graficos > 0 && 10 >= data.thing.bandaSonora > 0 && 10 >= data.thing.gameplay > 0 && 10 >= data.thing.argumento > 0){
-            if(data.thing.graficos && data.thing.bandaSonora && data.thing.gameplay && data.thing.argumento){
-                fetch(URLRest, {
-                    "method": "POST",
-                    "headers": {"Content-Type": "application/json"},
-                    "body": JSON.stringify(data)
-                }).then(agregarElemento);
-            }
-            else{
-                alert("hay un campo vacio");
-            }
+        if(comprobarCampos()){
+            fetch(URLRest, {
+                "method": "POST",
+                "headers": {"Content-Type": "application/json"},
+                "body": JSON.stringify(data)
+            }).then(()=>{
+                agregarElemento();
+            });
         }
         else{
-            alert("el puntaje tiene que ser entre 1 y 10");
+            alert("el puntaje tiene que ser entre 1 y 10 y no puede haber campos vacios");
         }
-    }
-    function agregarBotones(){
-        //a hacer
     }
     refresh();
     function refresh(){
@@ -163,7 +189,14 @@ function creaTuReview(){
         botonBorrar.addEventListener("click", ()=>{
             borrarRest(id, nuevaFila);
         })
+        botonEditar.addEventListener("click", ()=>{
+            editarRest(id, nuevaFila);
+        })
+
         tdTotal = totalTd(td);
+        if(tdTotal.innerHTML == 10){
+            nuevaFila.classList.add("resaltado");
+        }
         nuevaFila.appendChild(tdTotal);
         nuevaFila.appendChild(botonEditar);
         nuevaFila.appendChild(botonBorrar);
@@ -183,17 +216,54 @@ function creaTuReview(){
         });
         tr.remove();
     }
-    // function hardReset(){
-    //     document.querySelector("tbody").innerHTML = "";
-    //     refresh();
-    // }
-    document.querySelector("#pija").addEventListener("click", aLaVerga);
-    function aLaVerga(){
+    function editarRest(ultraURL, tr){
+        let data = {
+            "thing": {
+                "nombre": inputs[0].value,
+                "graficos": inputs[1].value,
+                "bandaSonora": inputs[2].value,
+                "gameplay": inputs[3].value,
+                "argumento": inputs[4].value
+            }
+        }
+        if(comprobarCampos()){
+            ultraURL = URLRest + "/" + ultraURL;
+            let iterar = 0;
+            let todoTd = tr.querySelectorAll("td");
+            //hacer el alert cuando valores no existen
+            todoTd.forEach(td=>{
+                if(iterar<5){
+                    td.innerHTML = inputs[iterar].value;
+                }
+                else{
+                    console.log("recalcula total");
+                    td.innerHTML = totalTd(todoTd).innerHTML;
+                    if(td.innerHTML == 10){
+                        tr.classList.add("resaltado");
+                    }
+                    else{
+                        tr.classList.remove("resaltado");
+                    }
+                }
+                iterar++;
+            })
+            fetch(ultraURL, {
+                "method": "PUT",
+                "headers": {"Content-Type": "application/json"},
+                "body": JSON.stringify(data)
+            })
+        }
+        else{
+            alert("no puede haber campos vacios y los valores tienen que ser entre 1 y 10");
+        }
+    }
+    document.querySelector("#borrarTodo").addEventListener("click", limpiarTodo);
+    function limpiarTodo(){
         fetch(URLRest).then(resp=>{
             resp.json().then(a=>{
                 a.resenas.forEach(reviews =>{
                     console.log(reviews._id);
-                    borrarRest(reviews._id);
+                    borrarRest(reviews._id, document.querySelector("tbody").querySelector("tr"));
                 })
             })
         })

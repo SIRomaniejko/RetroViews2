@@ -223,6 +223,9 @@ input:first-of-type{
     list-style-position: outside;
     /* list-style-image: none */
 }
+.resaltado td{
+    background-color: gold;
+}
 @media only screen and (min-width:500px){
     .gridArticulos{
         grid-template-columns: repeat(3, 1fr);
